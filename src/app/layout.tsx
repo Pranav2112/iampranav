@@ -1,7 +1,10 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import CustomCursor from "@/components/CustomCursor";
+import Navbar from "@/components/layout/Navbar";
+import ScrollProgress from "@/components/layout/ScrollProgress";
+import CustomCursor from "@/components/layout/CustomCursor";
+import SmoothScroll from "@/components/layout/SmoothScroll";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -14,8 +17,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Pranav Auti | Portfolio",
-  description: "Cinematic 3D portfolio — web experiences & intelligent systems",
+  title: "Pranav | Full Stack Developer",
+  description:
+    "Portfolio of Pranav — a Full Stack Developer crafting digital experiences with modern web technologies.",
 };
 
 export default function RootLayout({
@@ -26,10 +30,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased overflow-x-hidden`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <CustomCursor />
-        {children}
+        <SmoothScroll>
+          <CustomCursor />
+          <ScrollProgress />
+          <Navbar />
+          {children}
+        </SmoothScroll>
       </body>
     </html>
   );

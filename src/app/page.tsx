@@ -1,23 +1,22 @@
-import Hero from "@/sections/Hero";
-import Projects from "@/sections/Projects";
-import About from "@/sections/About";
-import Skills from "@/sections/Skills";
-import Experience from "@/sections/Experience";
+import Hero from "@/components/sections/Hero";
 
 export default function Home() {
   return (
     <main>
       <Hero />
-      <Projects />
-      <About />
-      <Skills />
-      <Experience />
 
-      <section id="projects" className="min-h-screen bg-black px-6 py-24">
-        <h2 className="text-3xl font-bold">Projects</h2>
-        <p className="mt-3 text-white/70">
-          Next: horizontal scroll + 3D tilt project cards + hover reveal.
-        </p>
+      {/* Placeholder sections for scroll & nav testing */}
+      <section id="about" className="flex min-h-screen items-center justify-center bg-[#0a0a0a]">
+        <h2 className="text-4xl font-bold text-zinc-700">About — Coming Next</h2>
+      </section>
+      <section id="skills" className="flex min-h-screen items-center justify-center bg-[#0a0a0a]">
+        <h2 className="text-4xl font-bold text-zinc-700">Skills — Coming Next</h2>
+      </section>
+      <section id="projects" className="flex min-h-screen items-center justify-center bg-[#0a0a0a]">
+        <h2 className="text-4xl font-bold text-zinc-700">Projects — Coming Next</h2>
+      </section>
+      <section id="contact" className="flex min-h-screen items-center justify-center bg-[#0a0a0a]">
+        <h2 className="text-4xl font-bold text-zinc-700">Contact — Coming Next</h2>
       </section>
     </main>
   );
