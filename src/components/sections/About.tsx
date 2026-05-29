@@ -2,10 +2,10 @@
 
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import { Code2, Brain, Blocks, TrendingUp } from "lucide-react";
+import { Code2, Brain, Blocks, TrendingUp, type LucideIcon } from "lucide-react";
 import { aboutData } from "@/lib/data";
 
-const iconMap: Record<string, React.ElementType> = {
+const iconMap: Record<string, LucideIcon> = {
   code: Code2,
   brain: Brain,
   blocks: Blocks,
