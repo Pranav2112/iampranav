@@ -399,7 +399,7 @@ export const projectsData = {
         "Secure and transparent on-chain transactions",
       ],
       liveUrl: "",
-      githubUrl: "https://github.com/Pranav2112",
+      githubUrl: "https://github.com/Pranav2112/AvaxPay",
       status: "Completed",
       year: "2025",
     },
