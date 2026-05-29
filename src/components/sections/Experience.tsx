@@ -3,15 +3,11 @@
 import { useRef, useState } from "react";
 import { motion, useInView, AnimatePresence } from "framer-motion";
 import {
-  Trophy,
-  Zap,
   Star,
   ChevronRight,
   Briefcase,
   GraduationCap,
-  FlaskConical,
   Code2,
-  Shield,
 } from "lucide-react";
 import { experienceData } from "@/lib/data";
 
@@ -26,11 +22,9 @@ const fadeUp = {
   }),
 };
 
-/* ─── Color system ─────────────────────────────────────────── */
-
 const colors: Record<
   string,
-  { accent: string; bg: string; border: string; bar: string; glow: string; ring: string }
+  { accent: string; bg: string; border: string; bar: string; glow: string }
 > = {
   indigo: {
     accent: "text-indigo-400",
@@ -38,7 +32,6 @@ const colors: Record<
     border: "border-indigo-500/20",
     bar: "bg-indigo-500",
     glow: "shadow-[0_0_20px_rgba(99,102,241,0.4)]",
-    ring: "ring-indigo-500/30",
   },
   violet: {
     accent: "text-violet-400",
@@ -46,7 +39,6 @@ const colors: Record<
     border: "border-violet-500/20",
     bar: "bg-violet-500",
     glow: "shadow-[0_0_20px_rgba(139,92,246,0.4)]",
-    ring: "ring-violet-500/30",
   },
   cyan: {
     accent: "text-cyan-400",
@@ -54,7 +46,6 @@ const colors: Record<
     border: "border-cyan-500/20",
     bar: "bg-cyan-500",
     glow: "shadow-[0_0_20px_rgba(6,182,212,0.4)]",
-    ring: "ring-cyan-500/30",
   },
   emerald: {
     accent: "text-emerald-400",
@@ -62,7 +53,6 @@ const colors: Record<
     border: "border-emerald-500/20",
     bar: "bg-emerald-500",
     glow: "shadow-[0_0_20px_rgba(16,185,129,0.4)]",
-    ring: "ring-emerald-500/30",
   },
   amber: {
     accent: "text-amber-400",
@@ -70,80 +60,14 @@ const colors: Record<
     border: "border-amber-500/20",
     bar: "bg-amber-500",
     glow: "shadow-[0_0_20px_rgba(245,158,11,0.4)]",
-    ring: "ring-amber-500/30",
   },
 };
 
-const levelBadge: Record<string, { label: string; color: string }> = {
-  Legendary: { label: "LEGENDARY", color: "text-amber-300 bg-amber-500/10 border-amber-500/20" },
-  Epic: { label: "EPIC", color: "text-violet-300 bg-violet-500/10 border-violet-500/20" },
-  Rare: { label: "RARE", color: "text-cyan-300 bg-cyan-500/10 border-cyan-500/20" },
-  Common: { label: "COMMON", color: "text-zinc-300 bg-zinc-500/10 border-zinc-500/20" },
-};
-
 const typeIcon: Record<string, typeof Briefcase> = {
+  Work: Briefcase,
   Education: GraduationCap,
   Freelance: Code2,
-  Project: Briefcase,
-  Research: FlaskConical,
-  Work: Briefcase,
 };
-
-/* ─── Player HUD ───────────────────────────────────────────── */
-
-function PlayerHUD() {
-  const { playerStats } = experienceData;
-  const xpProgress = (playerStats.totalXP % 1000) / 1000;
-
-  return (
-    <div className="mx-auto mb-14 max-w-md">
-      <div className="rounded-2xl border border-white/[0.06] bg-white/[0.02] p-5">
-        <div className="mb-4 flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            {/* Level badge */}
-            <div className="relative flex h-12 w-12 items-center justify-center rounded-xl bg-indigo-500/10 ring-2 ring-indigo-500/20">
-              <Shield size={20} className="text-indigo-400" />
-              <span className="absolute -right-1.5 -top-1.5 flex h-5 w-5 items-center justify-center rounded-full bg-indigo-600 text-[9px] font-bold text-white">
-                {playerStats.level}
-              </span>
-            </div>
-            <div>
-              <p className="text-sm font-semibold text-white">{playerStats.title}</p>
-              <p className="text-[11px] text-zinc-500">Level {playerStats.level} Developer</p>
-            </div>
-          </div>
-          <div className="text-right">
-            <p className="font-mono text-sm font-bold text-indigo-400">
-              {playerStats.totalXP.toLocaleString()} XP
-            </p>
-            <p className="text-[10px] text-zinc-600">Total Experience</p>
-          </div>
-        </div>
-
-        {/* XP bar */}
-        <div className="relative">
-          <div className="flex items-center justify-between text-[10px] text-zinc-600 mb-1.5">
-            <span>LEVEL {playerStats.level}</span>
-            <span>LEVEL {playerStats.level + 1}</span>
-          </div>
-          <div className="h-2 w-full overflow-hidden rounded-full bg-white/[0.06]">
-            <motion.div
-              initial={{ width: 0 }}
-              whileInView={{ width: `${xpProgress * 100}%` }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.5, duration: 1.2, ease }}
-              className="h-full rounded-full bg-gradient-to-r from-indigo-600 to-violet-500"
-            >
-              <div className="h-full w-full animate-shimmer bg-gradient-to-r from-transparent via-white/20 to-transparent" />
-            </motion.div>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-/* ─── Timeline Node ────────────────────────────────────────── */
 
 function TimelineNode({
   item,
@@ -158,15 +82,13 @@ function TimelineNode({
   const isInView = useInView(ref, { once: true, margin: "-60px" });
   const [expanded, setExpanded] = useState(false);
   const c = colors[item.color] || colors.indigo;
-  const badge = levelBadge[item.level] || levelBadge.Common;
   const TypeIcon = typeIcon[item.type] || Briefcase;
   const isLeft = index % 2 === 0;
 
   return (
     <div ref={ref} className="relative flex justify-center">
-      {/* ── Center timeline line ── */}
+      {/* Center timeline line (desktop) */}
       <div className="absolute left-1/2 top-0 -translate-x-1/2 flex flex-col items-center z-0 hidden lg:flex">
-        {/* Node dot */}
         <motion.div
           initial={{ scale: 0 }}
           animate={isInView ? { scale: 1 } : { scale: 0 }}
@@ -174,11 +96,9 @@ function TimelineNode({
           className={`relative z-10 flex h-5 w-5 items-center justify-center rounded-full ${c.bar} ${c.glow}`}
         >
           <div className="h-2 w-2 rounded-full bg-white" />
-          {/* Pulse ring */}
           <div className={`absolute inset-0 animate-ping rounded-full ${c.bar} opacity-20`} />
         </motion.div>
 
-        {/* Connector line */}
         {!isLast && (
           <motion.div
             initial={{ height: 0 }}
@@ -190,7 +110,7 @@ function TimelineNode({
         )}
       </div>
 
-      {/* ── Mobile: left line ── */}
+      {/* Mobile: left line */}
       <div className="absolute left-6 top-0 flex flex-col items-center z-0 lg:hidden">
         <motion.div
           initial={{ scale: 0 }}
@@ -205,7 +125,7 @@ function TimelineNode({
         )}
       </div>
 
-      {/* ── Card ── */}
+      {/* Card */}
       <motion.div
         initial={{ opacity: 0, x: isLeft ? -50 : 50, y: 20 }}
         animate={isInView ? { opacity: 1, x: 0, y: 0 } : {}}
@@ -214,38 +134,31 @@ function TimelineNode({
           isLeft ? "lg:mr-auto lg:pr-0" : "lg:ml-auto lg:pl-0"
         } pl-14 lg:pl-0`}
       >
-        <div
-          className={`group overflow-hidden rounded-2xl border border-white/[0.06] bg-[#111111] transition-all duration-500 hover:border-white/[0.1]`}
-        >
+        <div className="group overflow-hidden rounded-2xl border border-white/[0.06] bg-[#111111] transition-all duration-500 hover:border-white/[0.1]">
           {/* Top gradient */}
-          <div className={`h-[2px] bg-gradient-to-r from-transparent ${c.bar === "bg-indigo-500" ? "via-indigo-500/50" : c.bar === "bg-violet-500" ? "via-violet-500/50" : c.bar === "bg-cyan-500" ? "via-cyan-500/50" : c.bar === "bg-emerald-500" ? "via-emerald-500/50" : "via-amber-500/50"} to-transparent opacity-60`} />
+          <div
+            className={`h-[2px] bg-gradient-to-r from-transparent ${
+              c.bar === "bg-indigo-500"
+                ? "via-indigo-500/50"
+                : c.bar === "bg-violet-500"
+                ? "via-violet-500/50"
+                : c.bar === "bg-cyan-500"
+                ? "via-cyan-500/50"
+                : c.bar === "bg-emerald-500"
+                ? "via-emerald-500/50"
+                : "via-amber-500/50"
+            } to-transparent opacity-60`}
+          />
 
           <div className="p-5 sm:p-6">
-            {/* Header row */}
-            <div className="mb-4 flex items-start justify-between gap-3">
-              <div className="flex items-center gap-3">
-                <div className={`flex h-10 w-10 items-center justify-center rounded-xl ${c.bg}`}>
-                  <TypeIcon size={18} className={c.accent} />
-                </div>
-                <div>
-                  <h3 className="text-[15px] font-semibold text-white">{item.role}</h3>
-                  <p className="text-[12px] text-zinc-500">{item.company}</p>
-                </div>
+            {/* Header */}
+            <div className="mb-4 flex items-start gap-3">
+              <div className={`flex h-10 w-10 items-center justify-center rounded-xl ${c.bg}`}>
+                <TypeIcon size={18} className={c.accent} />
               </div>
-
-              {/* XP badge */}
-              <div className="shrink-0 text-right">
-                <div className="flex items-center gap-1">
-                  <Zap size={12} className="text-amber-400" />
-                  <span className="font-mono text-sm font-bold text-amber-400">
-                    +{item.xp} XP
-                  </span>
-                </div>
-                <span
-                  className={`mt-1 inline-block rounded-md border px-1.5 py-[1px] text-[9px] font-bold uppercase tracking-wider ${badge.color}`}
-                >
-                  {badge.label}
-                </span>
+              <div>
+                <h3 className="text-[15px] font-semibold text-white">{item.role}</h3>
+                <p className="text-[12px] text-zinc-500">{item.company}</p>
               </div>
             </div>
 
@@ -255,7 +168,9 @@ function TimelineNode({
               <span className="h-1 w-1 rounded-full bg-zinc-700" />
               <span>{item.location}</span>
               <span className="h-1 w-1 rounded-full bg-zinc-700" />
-              <span className={`rounded-md border px-1.5 py-[1px] text-[10px] font-medium ${c.bg} ${c.accent} ${c.border}`}>
+              <span
+                className={`rounded-md border px-1.5 py-[1px] text-[10px] font-medium ${c.bg} ${c.accent} ${c.border}`}
+              >
                 {item.type}
               </span>
             </div>
@@ -265,7 +180,7 @@ function TimelineNode({
               {item.description}
             </p>
 
-            {/* Skills row */}
+            {/* Skills */}
             <div className="mb-4 flex flex-wrap gap-1.5">
               {item.skills.map((skill) => (
                 <span
@@ -282,15 +197,14 @@ function TimelineNode({
               onClick={() => setExpanded(!expanded)}
               className={`flex items-center gap-1.5 text-[12px] font-semibold ${c.accent} transition-all hover:gap-2`}
             >
-              <Trophy size={13} />
-              {expanded ? "Hide" : "Show"} Achievements ({item.achievements.length})
+              <Star size={13} />
+              {expanded ? "Hide" : "Show"} Highlights ({item.achievements.length})
               <ChevronRight
                 size={13}
                 className={`transition-transform ${expanded ? "rotate-90" : ""}`}
               />
             </button>
 
-            {/* Achievements list */}
             <AnimatePresence>
               {expanded && (
                 <motion.div
@@ -310,9 +224,7 @@ function TimelineNode({
                         className="flex items-start gap-2.5"
                       >
                         <Star size={11} className={`mt-[3px] shrink-0 ${c.accent}`} />
-                        <span className="text-[12px] leading-snug text-zinc-300">
-                          {ach}
-                        </span>
+                        <span className="text-[12px] leading-snug text-zinc-300">{ach}</span>
                       </motion.div>
                     ))}
                   </div>
@@ -325,8 +237,6 @@ function TimelineNode({
     </div>
   );
 }
-
-/* ─── Main Section ─────────────────────────────────────────── */
 
 export default function Experience() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -346,7 +256,7 @@ export default function Experience() {
 
       <div className="relative z-10 mx-auto max-w-5xl px-6">
         {/* Header */}
-        <div className="mb-12 text-center">
+        <div className="mb-16 text-center">
           <motion.span
             custom={0}
             variants={fadeUp}
@@ -361,9 +271,8 @@ export default function Experience() {
             variants={fadeUp}
             initial="hidden"
             animate={isInView ? "visible" : "hidden"}
-            className="flex items-center justify-center gap-3 text-3xl font-bold text-white sm:text-5xl"
+            className="text-3xl font-bold text-white sm:text-5xl"
           >
-            <Trophy size={32} className="text-amber-400" />
             {experienceData.headline}
           </motion.h2>
           <motion.p
@@ -375,21 +284,17 @@ export default function Experience() {
           >
             {experienceData.subtitle}
           </motion.p>
+          <motion.div
+            custom={0.3}
+            variants={fadeUp}
+            initial="hidden"
+            animate={isInView ? "visible" : "hidden"}
+            className="mx-auto mt-6 h-1 w-16 rounded-full bg-gradient-to-r from-indigo-500 to-violet-500"
+          />
         </div>
-
-        {/* Player HUD */}
-        <motion.div
-          custom={0.3}
-          variants={fadeUp}
-          initial="hidden"
-          animate={isInView ? "visible" : "hidden"}
-        >
-          <PlayerHUD />
-        </motion.div>
 
         {/* Timeline */}
         <div className="relative space-y-8 lg:space-y-12">
-          {/* Center line (desktop) */}
           <div className="pointer-events-none absolute left-1/2 top-0 hidden h-full w-[2px] -translate-x-1/2 bg-gradient-to-b from-white/[0.06] via-white/[0.03] to-transparent lg:block" />
 
           {experienceData.timeline.map((item, i) => (

@@ -125,13 +125,8 @@ export const skillsData = {
 };
 
 export const experienceData = {
-  headline: "Quest Log",
-  subtitle: "My journey through the tech world — each role a new level unlocked",
-  playerStats: {
-    level: 8,
-    title: "Full Stack Developer",
-    totalXP: 3200,
-  },
+  headline: "Experience",
+  subtitle: "My professional journey through the tech world",
   timeline: [
     {
       id: "exp-1",
@@ -140,8 +135,6 @@ export const experienceData = {
       location: "New Jersey, USA",
       period: "2025 – Present",
       type: "Work",
-      xp: 1200,
-      level: "Legendary",
       description:
         "Serving as a Graduate Assistant while pursuing MS in Computer Science. Supporting faculty with research, coursework, and academic operations. Gaining hands-on experience in ML, blockchain, and full-stack development through academic projects.",
       achievements: [
@@ -160,8 +153,6 @@ export const experienceData = {
       location: "Remote",
       period: "2024 – 2025",
       type: "Work",
-      xp: 1000,
-      level: "Epic",
       description:
         "Worked as a Full Stack Developer at Tychee, contributing to building and maintaining web applications. Collaborated with the team on product features, API development, and frontend interfaces.",
       achievements: [
@@ -180,8 +171,6 @@ export const experienceData = {
       location: "Remote",
       period: "2025",
       type: "Freelance",
-      xp: 800,
-      level: "Epic",
       description:
         "Designed and developed a modern, fully responsive trading education website with advanced GSAP animations, interactive UI components, and a polished user experience for a trading education company.",
       achievements: [
