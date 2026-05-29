@@ -5,9 +5,9 @@ export const siteConfig = {
     "I craft digital experiences that merge creativity with clean code. Specializing in modern web technologies to build fast, beautiful, and accessible applications.",
   email: "hello@pranav.dev",
   socials: {
-    github: "https://github.com/pranav",
-    linkedin: "https://linkedin.com/in/pranav",
-    twitter: "https://twitter.com/pranav",
+    github: "https://github.com/Pranav2112",
+    linkedin: "https://www.linkedin.com/in/pranav-auti/",
+    twitter: "https://x.com/Pranav_Autii",
   },
 };
 

@@ -595,7 +595,7 @@ export default function Projects() {
             className="mt-14 text-center"
           >
             <a
-              href="https://github.com/pranav"
+              href="https://github.com/Pranav2112"
               target="_blank"
               rel="noopener noreferrer"
               className="group inline-flex items-center gap-1.5 text-[13px] font-medium text-zinc-600 transition-colors hover:text-zinc-300"
