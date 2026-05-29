@@ -3,7 +3,6 @@
 import { useRef, useState, useCallback, useEffect } from "react";
 import { motion, useInView, useMotionValue, useSpring, useTransform, AnimatePresence } from "framer-motion";
 import {
-  ExternalLink,
   Github,
   X,
   ChevronRight,
@@ -69,6 +68,7 @@ const catStyle: Record<string, { accent: string; bg: string; border: string; gra
 
 const statusDot: Record<string, string> = {
   Live: "bg-emerald-500",
+  Completed: "bg-emerald-500",
   "In Development": "bg-amber-500",
   Archived: "bg-zinc-500",
 };
@@ -311,19 +311,20 @@ function ProjectModal({ project, onClose }: { project: Project; onClose: () => v
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="fixed inset-0 z-[100] flex items-center justify-center p-4"
+      className="fixed inset-0 z-[100] overflow-y-auto"
       onClick={onClose}
     >
-      <div className="absolute inset-0 bg-black/80 backdrop-blur-md" />
+      <div className="fixed inset-0 bg-black/80 backdrop-blur-md" />
 
-      <motion.div
-        initial={{ opacity: 0, scale: 0.92, y: 30 }}
-        animate={{ opacity: 1, scale: 1, y: 0 }}
-        exit={{ opacity: 0, scale: 0.92, y: 30 }}
-        transition={{ duration: 0.35, ease }}
-        onClick={(e) => e.stopPropagation()}
-        className="relative z-10 max-h-[85vh] w-full max-w-2xl overflow-y-auto rounded-2xl border border-white/[0.08] bg-[#0f0f0f]"
-      >
+      <div className="flex min-h-full items-center justify-center p-4">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.92, y: 30 }}
+          animate={{ opacity: 1, scale: 1, y: 0 }}
+          exit={{ opacity: 0, scale: 0.92, y: 30 }}
+          transition={{ duration: 0.35, ease }}
+          onClick={(e) => e.stopPropagation()}
+          className="relative z-10 my-8 w-full max-w-2xl rounded-2xl border border-white/[0.08] bg-[#0f0f0f]"
+        >
         {/* Close */}
         <button
           onClick={onClose}
@@ -457,7 +458,8 @@ function ProjectModal({ project, onClose }: { project: Project; onClose: () => v
             )}
           </div>
         </div>
-      </motion.div>
+        </motion.div>
+      </div>
     </motion.div>
   );
 }
