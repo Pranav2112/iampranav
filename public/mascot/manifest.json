@@ -1,0 +1,256 @@
+{
+  "idle": {
+    "frames": [
+      {
+        "src": "/mascot/frames/idle/00.png",
+        "width": 109,
+        "height": 320
+      },
+      {
+        "src": "/mascot/frames/idle/01.png",
+        "width": 107,
+        "height": 320
+      },
+      {
+        "src": "/mascot/frames/idle/02.png",
+        "width": 108,
+        "height": 320
+      },
+      {
+        "src": "/mascot/frames/idle/03.png",
+        "width": 106,
+        "height": 320
+      },
+      {
+        "src": "/mascot/frames/idle/04.png",
+        "width": 107,
+        "height": 320
+      },
+      {
+        "src": "/mascot/frames/idle/05.png",
+        "width": 104,
+        "height": 320
+      }
+    ],
+    "fps": 4,
+    "loop": true,
+    "footOffset": 0
+  },
+  "walk": {
+    "frames": [
+      {
+        "src": "/mascot/frames/walk/00.png",
+        "width": 108,
+        "height": 320
+      },
+      {
+        "src": "/mascot/frames/walk/01.png",
+        "width": 108,
+        "height": 320
+      },
+      {
+        "src": "/mascot/frames/walk/02.png",
+        "width": 108,
+        "height": 320
+      },
+      {
+        "src": "/mascot/frames/walk/03.png",
+        "width": 108,
+        "height": 320
+      },
+      {
+        "src": "/mascot/frames/walk/04.png",
+        "width": 108,
+        "height": 320
+      },
+      {
+        "src": "/mascot/frames/walk/05.png",
+        "width": 108,
+        "height": 320
+      }
+    ],
+    "fps": 10,
+    "loop": true,
+    "footOffset": 0
+  },
+  "run": {
+    "frames": [
+      {
+        "src": "/mascot/frames/run/00.png",
+        "width": 90,
+        "height": 320
+      },
+      {
+        "src": "/mascot/frames/run/01.png",
+        "width": 78,
+        "height": 320
+      },
+      {
+        "src": "/mascot/frames/run/02.png",
+        "width": 84,
+        "height": 320
+      },
+      {
+        "src": "/mascot/frames/run/03.png",
+        "width": 67,
+        "height": 320
+      },
+      {
+        "src": "/mascot/frames/run/04.png",
+        "width": 91,
+        "height": 320
+      },
+      {
+        "src": "/mascot/frames/run/05.png",
+        "width": 80,
+        "height": 320
+      },
+      {
+        "src": "/mascot/frames/run/06.png",
+        "width": 76,
+        "height": 320
+      },
+      {
+        "src": "/mascot/frames/run/07.png",
+        "width": 95,
+        "height": 320
+      }
+    ],
+    "fps": 14,
+    "loop": true,
+    "footOffset": 0
+  },
+  "jump": {
+    "frames": [
+      {
+        "src": "/mascot/frames/jump/00.png",
+        "width": 99,
+        "height": 320
+      },
+      {
+        "src": "/mascot/frames/jump/01.png",
+        "width": 111,
+        "height": 320
+      },
+      {
+        "src": "/mascot/frames/jump/02.png",
+        "width": 113,
+        "height": 320
+      },
+      {
+        "src": "/mascot/frames/jump/03.png",
+        "width": 100,
+        "height": 320
+      },
+      {
+        "src": "/mascot/frames/jump/04.png",
+        "width": 110,
+        "height": 320
+      },
+      {
+        "src": "/mascot/frames/jump/05.png",
+        "width": 107,
+        "height": 320
+      }
+    ],
+    "fps": 10,
+    "loop": false,
+    "footOffset": 0
+  },
+  "sit": {
+    "frames": [
+      {
+        "src": "/mascot/frames/sit/00.png",
+        "width": 102,
+        "height": 320
+      },
+      {
+        "src": "/mascot/frames/sit/01.png",
+        "width": 102,
+        "height": 320
+      },
+      {
+        "src": "/mascot/frames/sit/02.png",
+        "width": 102,
+        "height": 320
+      },
+      {
+        "src": "/mascot/frames/sit/03.png",
+        "width": 102,
+        "height": 320
+      },
+      {
+        "src": "/mascot/frames/sit/04.png",
+        "width": 102,
+        "height": 320
+      },
+      {
+        "src": "/mascot/frames/sit/05.png",
+        "width": 102,
+        "height": 320
+      }
+    ],
+    "fps": 5,
+    "loop": true,
+    "footOffset": 0
+  },
+  "blink": {
+    "frames": [
+      {
+        "src": "/mascot/frames/blink/00.png",
+        "width": 131,
+        "height": 320
+      },
+      {
+        "src": "/mascot/frames/blink/01.png",
+        "width": 125,
+        "height": 320
+      },
+      {
+        "src": "/mascot/frames/blink/02.png",
+        "width": 125,
+        "height": 320
+      },
+      {
+        "src": "/mascot/frames/blink/03.png",
+        "width": 126,
+        "height": 320
+      },
+      {
+        "src": "/mascot/frames/blink/04.png",
+        "width": 133,
+        "height": 320
+      }
+    ],
+    "fps": 12,
+    "loop": false,
+    "footOffset": 0
+  },
+  "look": {
+    "frames": [
+      {
+        "src": "/mascot/frames/look/00.png",
+        "width": 167,
+        "height": 320
+      },
+      {
+        "src": "/mascot/frames/look/01.png",
+        "width": 153,
+        "height": 320
+      },
+      {
+        "src": "/mascot/frames/look/02.png",
+        "width": 151,
+        "height": 320
+      },
+      {
+        "src": "/mascot/frames/look/03.png",
+        "width": 169,
+        "height": 320
+      }
+    ],
+    "fps": 8,
+    "loop": false,
+    "footOffset": 0
+  }
+}
