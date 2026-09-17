@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+html { scroll-behavior: smooth; }
+
 /* ─── Design tokens ─────────────────────────────────────────── */
 @theme inline {
   --color-bg:       #0A0A0A;
