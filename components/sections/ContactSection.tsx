@@ -42,7 +42,7 @@ export default function ContactSection() {
               Targeting Summer 2027 internships in SWE, FinTech, AI, or Web3.
               Open to research collaborations. Fast reply.
             </p>
-            <a href="mailto:pranavauti2003@gmail.com" className="btn-primary" style={{ fontSize: "9px" }}>
+            <a href="mailto:pranavauti2003@gmail.com" className="btn-primary" style={{ fontSize: "11px" }}>
               Send a message ↗
             </a>
           </div>
