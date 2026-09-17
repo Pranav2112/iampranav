@@ -190,7 +190,7 @@ function ExhibitRow({ project, index }: { project: Project; index: number }) {
         className="absolute font-condensed font-black select-none pointer-events-none leading-none"
         style={{
           fontSize: "28vw",
-          color: "rgba(255,255,255,0.015)",
+          color: "rgba(255,255,255,0.03)",
           top: "-0.05em",
           [isEven ? "left" : "right"]: "-0.02em",
           letterSpacing: "-0.05em",
@@ -228,9 +228,9 @@ function RestList({ projects }: { projects: Project[] }) {
             viewport={{ once: true, margin: "-40px" }}
             transition={{ duration: 0.6, delay: i * 0.07, ease: [0.16, 1, 0.3, 1] }}
             className="group flex items-baseline gap-6 py-5 transition-colors"
-            style={{ borderBottom: "1px solid #0F0F0F" }}
-            onMouseEnter={(e) => (e.currentTarget.style.borderBottomColor = "#1E1E1E")}
-            onMouseLeave={(e) => (e.currentTarget.style.borderBottomColor = "#0F0F0F")}
+            style={{ borderBottom: "1px solid #141414" }}
+            onMouseEnter={(e) => (e.currentTarget.style.borderBottomColor = "#222")}
+            onMouseLeave={(e) => (e.currentTarget.style.borderBottomColor = "#141414")}
           >
             <span className="font-mono text-[9px] shrink-0 w-6" style={{ color: "#444" }}>
               {String(featured.length + i + 1).padStart(2, "0")}

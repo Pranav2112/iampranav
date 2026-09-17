@@ -69,6 +69,9 @@ export default function Navbar() {
 
           <button
             onClick={() => setMenuOpen(!menuOpen)}
+            aria-label={menuOpen ? "Close menu" : "Open menu"}
+            aria-expanded={menuOpen}
+            aria-controls="mobile-menu"
             className="md:hidden font-mono text-[10px] tracking-[0.14em] uppercase"
             style={{ color: "#666666" }}
           >
@@ -80,6 +83,7 @@ export default function Navbar() {
       <AnimatePresence>
         {menuOpen && (
           <motion.div
+            id="mobile-menu"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}

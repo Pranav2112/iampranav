@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     "MS CS at Stevens Institute of Technology. Building AI, Web3, and full-stack production systems. AvaxPay, FinSight AI, FlashBet, MaternaSense.",
   keywords: ["Pranav Auti", "Stevens", "Web3", "AI", "FinTech", "Full Stack", "Solidity", "Next.js"],
   authors: [{ name: "Pranav Auti" }],
-  metadataBase: new URL("https://pranavauti.vercel.app"),
+  metadataBase: new URL("https://iampranavdev.vercel.app"),
   openGraph: {
     title: "Pranav Auti — Engineer",
     description: "Building production systems at the intersection of AI, Web3, and software engineering.",
@@ -52,6 +52,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       className={`${spaceGrotesk.variable} ${inter.variable} ${geistMono.variable} ${barlowCondensed.variable}`}
     >
       <body>
+        <a href="#work" className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] btn-primary">
+          Skip to content
+        </a>
         <SmoothScroll>{children}</SmoothScroll>
       </body>
     </html>

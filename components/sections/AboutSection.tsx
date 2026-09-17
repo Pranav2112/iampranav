@@ -44,10 +44,10 @@ function CountUp({ to, suffix = "" }: { to: number; suffix?: string }) {
 }
 
 const STATS = [
-  { display: "MS CS",  label: "Stevens Institute",       numeric: false },
-  { display: "3",      label: "Blockchains shipped",     numeric: true,  to: 3  },
-  { display: "NJ",     label: "Hoboken, New Jersey",     numeric: false },
-  { display: "2027",   label: "Summer internship target", numeric: true,  to: 2027 },
+  { display: "MS CS",  label: "Stevens Institute",   numeric: false },
+  { display: "9",      label: "Projects shipped",    numeric: true,  to: 9  },
+  { display: "3",      label: "Blockchains deployed", numeric: true,  to: 3  },
+  { display: "2027",   label: "Internship target",   numeric: false },
 ];
 
 export default function AboutSection() {
