@@ -33,8 +33,8 @@ function Portrait() {
         className="absolute bottom-0 left-0 right-0"
         style={{ height: "20%", background: "linear-gradient(to top, #0A0A0A 0%, transparent 100%)" }}
       />
-      <div className="absolute top-0 right-0 w-4 h-4 border-t border-r" style={{ borderColor: "rgba(201,184,154,0.4)" }} />
-      <div className="absolute bottom-0 left-0 w-4 h-4 border-b border-l" style={{ borderColor: "rgba(201,184,154,0.4)" }} />
+      <div className="absolute top-0 right-0 w-4 h-4 border-t border-r" style={{ borderColor: "rgba(201,184,154,0.7)" }} />
+      <div className="absolute bottom-0 left-0 w-4 h-4 border-b border-l" style={{ borderColor: "rgba(201,184,154,0.7)" }} />
     </div>
   );
 }

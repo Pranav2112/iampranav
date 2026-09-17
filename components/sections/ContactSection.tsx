@@ -29,7 +29,7 @@ export default function ContactSection() {
             style={{ fontSize: "clamp(4.5rem, 12vw, 11rem)", color: "#F5F5F2", letterSpacing: "-0.03em" }}
           >
             Let&apos;s build<br />
-            <span style={{ color: "#141414", WebkitTextStroke: "1px #2A2A2A" }}>something.</span>
+            <span style={{ color: "transparent", WebkitTextStroke: "1.5px #404040" }}>something.</span>
           </motion.h2>
         </div>
 

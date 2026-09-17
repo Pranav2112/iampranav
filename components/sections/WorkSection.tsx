@@ -26,21 +26,21 @@ function BlueprintVisual({ project }: { project: Project }) {
       <svg className="absolute inset-0 w-full h-full" aria-hidden>
         <defs>
           <pattern id={`grid-${project.id}`} width="40" height="40" patternUnits="userSpaceOnUse">
-            <path d="M 40 0 L 0 0 0 40" fill="none" stroke="white" strokeWidth="0.3" strokeOpacity="0.04" />
+            <path d="M 40 0 L 0 0 0 40" fill="none" stroke="white" strokeWidth="0.4" strokeOpacity="0.08" />
           </pattern>
         </defs>
         <rect width="100%" height="100%" fill={`url(#grid-${project.id})`} />
       </svg>
       <div className="absolute inset-0 flex items-center justify-center">
         <span className="font-condensed font-black select-none pointer-events-none leading-none"
-          style={{ fontSize: "clamp(2rem, 6vw, 5rem)", color: "rgba(255,255,255,0.03)", letterSpacing: "-0.02em" }}>
+          style={{ fontSize: "clamp(2rem, 6vw, 5rem)", color: "rgba(255,255,255,0.07)", letterSpacing: "-0.02em" }}>
           {project.track.toUpperCase()}
         </span>
       </div>
       <div className="absolute bottom-0 left-0 right-0 p-6 flex flex-wrap gap-2">
         {project.tech.slice(0, 6).map((t) => (
           <span key={t} className="font-mono text-[9px] tracking-widest uppercase px-2 py-1"
-            style={{ color: "#555", border: "1px solid #262626" }}>{t}</span>
+            style={{ color: "#777", border: "1px solid #333" }}>{t}</span>
         ))}
       </div>
       {project.highlight && (
@@ -50,8 +50,8 @@ function BlueprintVisual({ project }: { project: Project }) {
           </span>
         </div>
       )}
-      <div className="absolute top-4 right-4 w-3 h-3 border-t border-r" style={{ borderColor: "rgba(201,184,154,0.2)" }} />
-      <div className="absolute bottom-4 left-4 w-3 h-3 border-b border-l" style={{ borderColor: "rgba(201,184,154,0.2)" }} />
+      <div className="absolute top-4 right-4 w-3 h-3 border-t border-r" style={{ borderColor: "rgba(201,184,154,0.45)" }} />
+      <div className="absolute bottom-4 left-4 w-3 h-3 border-b border-l" style={{ borderColor: "rgba(201,184,154,0.45)" }} />
     </div>
   );
 }
@@ -295,7 +295,7 @@ export default function WorkSection() {
             >
               Shipped
               <br />
-              <span style={{ color: "#141414", WebkitTextStroke: "1px #2A2A2A" }}>Products</span>
+              <span style={{ color: "transparent", WebkitTextStroke: "1.5px #404040" }}>Products</span>
             </h2>
             <p className="font-mono leading-relaxed max-w-xs" style={{ fontSize: "9px", color: "#666", paddingBottom: "0.5rem", letterSpacing: "0.1em" }}>
               Real deployments. Production contracts.

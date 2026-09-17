@@ -63,7 +63,7 @@ export default function StackSection() {
               style={{ fontSize: "clamp(4.5rem, 10vw, 9rem)", color: "#F5F5F2", letterSpacing: "-0.03em" }}
             >
               Tools I<br />
-              <span style={{ color: "#141414", WebkitTextStroke: "1px #2A2A2A" }}>Ship With</span>
+              <span style={{ color: "transparent", WebkitTextStroke: "1.5px #404040" }}>Ship With</span>
             </h2>
             <p className="font-mono leading-relaxed" style={{ fontSize: "9px", color: "#666", maxWidth: "26ch", letterSpacing: "0.08em", paddingBottom: "1rem" }}>
               Proven in production,

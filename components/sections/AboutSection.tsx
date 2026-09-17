@@ -77,7 +77,7 @@ export default function AboutSection() {
             }}
           >
             I don&apos;t<br />
-            <span style={{ color: "#1E1E1E", WebkitTextStroke: "1px #2A2A2A" }}>prototype.</span>
+            <span style={{ color: "transparent", WebkitTextStroke: "1.5px #404040" }}>prototype.</span>
             <br />I deploy.
           </motion.h2>
         </div>
