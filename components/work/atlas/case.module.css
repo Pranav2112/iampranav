@@ -1,0 +1,160 @@
+.pairs {
+  margin-top: 28px;
+  border-top: 1px solid var(--rule);
+}
+
+.pair {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: var(--gap);
+  row-gap: 16px;
+  padding-block: 24px;
+  border-bottom: 1px solid var(--rule);
+  align-items: center;
+}
+
+.sees {
+  grid-column: 1 / 5;
+}
+
+.arrow {
+  grid-column: 5 / 6;
+  justify-self: center;
+  color: var(--muted);
+}
+
+.true {
+  grid-column: 6 / 11;
+}
+
+.state {
+  grid-column: 11 / -1;
+  justify-self: end;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.stateNot {
+  font-weight: 400;
+  color: var(--muted);
+}
+
+.colHead {
+  font-size: 14px;
+  color: var(--muted);
+  padding-bottom: 10px;
+}
+
+@media (max-width: 899px) {
+  .sees {
+    grid-column: 1 / -1;
+  }
+
+  .arrow {
+    display: none;
+  }
+
+  .true {
+    grid-column: 1 / 10;
+  }
+
+  .state {
+    grid-column: 10 / -1;
+    align-self: start;
+  }
+
+  .colHead {
+    display: none;
+  }
+}
+
+@media (max-width: 499px) {
+  .true,
+  .state {
+    grid-column: 1 / -1;
+    justify-self: start;
+  }
+}
+
+/* Atlas UI fragments */
+.chip {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 12px;
+  padding: 10px 14px;
+  font-size: 15px;
+}
+
+.chip strong {
+  font-weight: 600;
+}
+
+/* tables in Atlas's own look */
+.uiTable {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.uiTable th,
+.uiTable td {
+  text-align: left;
+  padding: 9px 12px;
+  border-bottom: 1px solid var(--a-border);
+  vertical-align: top;
+}
+
+.uiTable th {
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--a-muted);
+}
+
+.uiTable tr:last-child td {
+  border-bottom: 0;
+}
+
+.voided td {
+  color: var(--a-muted);
+}
+
+.voided td:first-child,
+.voided td:nth-child(2) {
+  text-decoration: line-through;
+}
+
+.mono {
+  font-family: var(--font-geist-mono), ui-monospace, monospace;
+  font-size: 12.5px;
+}
+
+.shift {
+  color: var(--a-accent);
+  font-weight: 500;
+}
+
+.ci {
+  display: grid;
+  gap: 0;
+  margin-top: 16px;
+}
+
+.ci li {
+  display: grid;
+  grid-template-columns: 18px 1fr;
+  gap: 10px;
+  padding: 9px 0;
+  border-bottom: 1px solid var(--rule);
+  font-size: 15px;
+}
+
+.ci li::before {
+  content: "";
+  width: 10px;
+  height: 10px;
+  margin-top: 0.42em;
+  border-radius: 50%;
+  background: currentColor;
+}

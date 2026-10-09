@@ -1,0 +1,173 @@
+.sim {
+  display: grid;
+  grid-template-columns: minmax(0, 4fr) minmax(0, 8fr);
+  gap: clamp(24px, 4vw, 64px);
+  margin-top: 32px;
+  font-family: var(--font-geist-sans), system-ui, sans-serif;
+  align-items: start;
+}
+
+@media (max-width: 899px) {
+  .sim {
+    grid-template-columns: 1fr;
+  }
+}
+
+.picker {
+  display: grid;
+  gap: 8px;
+}
+
+.pick {
+  display: grid;
+  gap: 2px;
+  text-align: left;
+  padding: 12px 14px;
+  min-height: 44px;
+  border: 1px solid var(--rule);
+  border-radius: 10px;
+  background: transparent;
+  cursor: pointer;
+  transition: border-color 150ms, background 150ms;
+}
+
+.pick:hover {
+  border-color: var(--ink);
+}
+
+.pick[aria-pressed="true"] {
+  background: #fff;
+  border-color: var(--ink);
+}
+
+.pickLabel {
+  font-weight: 500;
+  font-size: 15px;
+}
+
+.pickSubject {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.note {
+  margin-top: 4px;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.flow {
+  display: grid;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.step {
+  position: relative;
+  padding: 0 0 26px 28px;
+}
+
+.step::before {
+  content: "";
+  position: absolute;
+  left: -4px;
+  top: 6px;
+  width: 9px;
+  height: 9px;
+  background: var(--ink);
+  z-index: 1;
+}
+
+.seg {
+  position: absolute;
+  left: 0;
+  top: 8px;
+  bottom: -8px;
+  width: 1.5px;
+  background: var(--ink);
+  transform-origin: top;
+}
+
+.segOff {
+  background: none;
+  border-left: 1.5px dashed color-mix(in srgb, var(--ink) 40%, transparent);
+}
+
+.skipped::before {
+  background: var(--bg);
+  border: 1.5px dashed color-mix(in srgb, var(--ink) 50%, transparent);
+}
+
+.last {
+  padding-bottom: 0;
+}
+
+.stepLabel {
+  font-size: 13px;
+  color: var(--muted);
+  margin-bottom: 6px;
+}
+
+.mail {
+  background: #fff;
+  border: 1px solid rgb(21 21 21 / 0.12);
+  border-radius: 10px;
+  padding: 12px 14px;
+  max-width: 560px;
+  overflow-wrap: anywhere;
+}
+
+.dim {
+  color: var(--muted);
+}
+
+.mono {
+  font-family: var(--font-geist-mono), ui-monospace, monospace;
+  font-size: 13px;
+  overflow-wrap: anywhere;
+}
+
+.rules {
+  display: grid;
+  max-width: 560px;
+}
+
+.rules li {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 2px 16px;
+  padding: 7px 0;
+  border-bottom: 1px solid var(--rule);
+}
+
+.quiet {
+  color: var(--muted);
+}
+
+.fired {
+  font-weight: 500;
+}
+
+.ruleOut {
+  font-size: 14px;
+}
+
+.gate {
+  margin-top: 4px;
+  font-family: var(--font-geist-mono), ui-monospace, monospace;
+  font-size: 13px;
+}
+
+.reason {
+  margin-top: 6px;
+}
+
+.called {
+  font-weight: 500;
+}
+
+.notCalled {
+  color: var(--muted);
+  text-decoration: line-through;
+}

@@ -1,61 +1,75 @@
-import type { Metadata } from "next";
-import { Space_Grotesk, Inter, Geist_Mono, Barlow_Condensed } from "next/font/google";
+import type { Metadata, Viewport } from "next";
+import { Archivo, Geist, Geist_Mono, Inter } from "next/font/google";
 import "./globals.css";
-import SmoothScroll from "@/components/providers/SmoothScroll";
+import Header from "@/components/site/Header";
+import Footer from "@/components/site/Footer";
+import styles from "@/components/site/site.module.css";
+import { SITE } from "@/lib/site";
 
-const spaceGrotesk = Space_Grotesk({
+const archivo = Archivo({
   subsets: ["latin"],
-  variable: "--font-space-grotesk",
-  weight: ["300", "400", "500", "600", "700"],
+  axes: ["wdth"],
+  variable: "--font-archivo",
   display: "swap",
 });
 
+// Atlas's own interface face, used only inside Atlas material.
 const inter = Inter({
   subsets: ["latin"],
+  weight: ["400", "500", "600"],
   variable: "--font-inter",
   display: "swap",
+  preload: false,
+});
+
+// MailGuard's own interface face, used only inside MailGuard material.
+const geist = Geist({
+  subsets: ["latin"],
+  weight: ["400", "500"],
+  variable: "--font-geist-sans",
+  display: "swap",
+  preload: false,
 });
 
 const geistMono = Geist_Mono({
   subsets: ["latin"],
+  weight: ["400"],
   variable: "--font-geist-mono",
-  weight: ["400", "500"],
   display: "swap",
-});
-
-const barlowCondensed = Barlow_Condensed({
-  subsets: ["latin"],
-  variable: "--font-barlow",
-  weight: ["300", "700", "900"],
-  display: "swap",
+  preload: false,
 });
 
 export const metadata: Metadata = {
-  title: "Pranav Auti — Engineer",
-  description:
-    "MS CS at Stevens Institute of Technology. Building AI, Web3, and full-stack production systems. AvaxPay, FinSight AI, FlashBet, MaternaSense.",
-  keywords: ["Pranav Auti", "Stevens", "Web3", "AI", "FinTech", "Full Stack", "Solidity", "Next.js"],
-  authors: [{ name: "Pranav Auti" }],
-  metadataBase: new URL("https://iampranavdev.vercel.app"),
+  metadataBase: new URL(SITE.url),
+  title: { default: "Pranav Auti — Software Engineer", template: "%s — Pranav Auti" },
+  description: SITE.description,
+  authors: [{ name: "Pranav Auti", url: SITE.url }],
+  alternates: { canonical: "/" },
   openGraph: {
-    title: "Pranav Auti — Engineer",
-    description: "Building production systems at the intersection of AI, Web3, and software engineering.",
-    images: [{ url: "/og-image.png", width: 1200, height: 630 }],
+    type: "website",
+    siteName: "Pranav Auti",
+    url: "/",
+    title: "Pranav Auti — Software Engineer",
+    description: SITE.description,
   },
+  twitter: { card: "summary_large_image", title: "Pranav Auti — Software Engineer", description: SITE.description },
   robots: { index: true, follow: true },
+};
+
+export const viewport: Viewport = {
+  themeColor: "#e9e9e6",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html
-      lang="en"
-      className={`${spaceGrotesk.variable} ${inter.variable} ${geistMono.variable} ${barlowCondensed.variable}`}
-    >
+    <html lang="en" className={`${archivo.variable} ${inter.variable} ${geist.variable} ${geistMono.variable}`}>
       <body>
-        <a href="#work" className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] btn-primary">
+        <a href="#main" className={styles.skip}>
           Skip to content
         </a>
-        <SmoothScroll>{children}</SmoothScroll>
+        <Header />
+        {children}
+        <Footer />
       </body>
     </html>
   );

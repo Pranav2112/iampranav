@@ -1,0 +1,180 @@
+/* Atlas's own design tokens (packages/ui/src/styles/tokens.css, light theme). */
+.ui {
+  --a-bg: oklch(0.982 0.004 85);
+  --a-raised: oklch(0.995 0.003 85);
+  --a-sunken: oklch(0.955 0.005 85);
+  --a-fg: oklch(0.2 0.006 80);
+  --a-muted: oklch(0.45 0.007 80);
+  --a-border: oklch(0.905 0.005 85);
+  --a-border-strong: oklch(0.8 0.006 85);
+  --a-accent: oklch(0.42 0.07 210);
+  --a-positive: oklch(0.5 0.1 150);
+  --a-caution-bg: oklch(0.96 0.04 85);
+  --a-caution-fg: oklch(0.45 0.1 65);
+
+  font-family: var(--font-inter), system-ui, sans-serif;
+  color: var(--a-fg);
+  font-feature-settings: "tnum";
+}
+
+/* ---------------------------------------------------------------- */
+/* Home card                                                          */
+/* ---------------------------------------------------------------- */
+
+.card {
+  background: var(--a-raised);
+  border: 1px solid var(--a-border);
+  border-radius: 16px;
+  box-shadow:
+    0 1px 2px oklch(0 0 0 / 0.04),
+    0 4px 16px oklch(0 0 0 / 0.05);
+  padding: 22px 22px 18px;
+}
+
+.preview {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 3px 9px;
+  border-radius: 9999px;
+  background: var(--a-caution-bg);
+  color: var(--a-caution-fg);
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.overline {
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--a-muted);
+}
+
+.amount {
+  font-size: 56px;
+  line-height: 1;
+  font-weight: 600;
+  letter-spacing: -0.025em;
+}
+
+.callout {
+  font-size: 15px;
+  line-height: 1.45;
+}
+
+.foot {
+  font-size: 13px;
+  line-height: 1.35;
+  color: var(--a-muted);
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 7px 0;
+  font-size: 14px;
+  border-bottom: 1px solid var(--a-border);
+}
+
+.row:last-child {
+  border-bottom: 0;
+}
+
+.sub {
+  padding-left: 14px;
+  color: var(--a-muted);
+}
+
+.total {
+  font-weight: 600;
+  border-top: 1px solid var(--a-border-strong);
+}
+
+.positive {
+  color: var(--a-positive);
+}
+
+.muted {
+  color: var(--a-muted);
+}
+
+/* ---------------------------------------------------------------- */
+/* Ledger slice                                                      */
+/* ---------------------------------------------------------------- */
+
+.ledger {
+  --row: 13px;
+  --big: 96px;
+  font-family: var(--font-archivo), system-ui, sans-serif;
+  color: var(--ink);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: auto auto 1fr;
+  align-items: baseline;
+  font-variant-numeric: tabular-nums;
+}
+
+.lrow {
+  display: contents;
+  font-size: var(--row);
+  line-height: 1.7;
+}
+
+.int {
+  text-align: right;
+}
+
+.frac {
+  justify-self: start;
+}
+
+.out {
+  color: var(--muted);
+}
+
+.out .int,
+.out .frac {
+  text-decoration: line-through;
+  text-decoration-thickness: 1px;
+}
+
+.note {
+  padding-left: 1.6em;
+  font-size: calc(var(--row) - 1px);
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+.big {
+  font-size: var(--big);
+  font-weight: 300;
+  font-variation-settings: "wdth" 62;
+  font-stretch: 62%;
+  letter-spacing: -0.03em;
+  line-height: 0.92;
+  padding-top: calc(var(--row) * 0.5);
+}
+
+.bigFrac {
+  grid-column: 2 / span 2;
+  justify-self: start;
+}
+
+.rule {
+  display: block;
+  height: 1px;
+  background: currentColor;
+  margin-top: 4px;
+}
+
+.assert {
+  display: block;
+  margin-top: 8px;
+  font-family: var(--font-geist-mono), ui-monospace, monospace;
+  font-size: 12px;
+  overflow-wrap: anywhere;
+}

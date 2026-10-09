@@ -1,23 +1,15 @@
-import Navbar from "@/components/layout/Navbar";
-import Footer from "@/components/layout/Footer";
-import HeroSection from "@/components/sections/HeroSection";
-import WorkSection from "@/components/sections/WorkSection";
-import AboutSection from "@/components/sections/AboutSection";
-import StackSection from "@/components/sections/StackSection";
-import ContactSection from "@/components/sections/ContactSection";
+import styles from "@/components/home/home.module.css";
+import Opening from "@/components/home/Opening";
+import SelectedWork from "@/components/home/SelectedWork";
+import { AboutShort, Contact } from "@/components/home/AboutContact";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-[#0A0A0A]">
-      <Navbar />
-      <main>
-        <HeroSection />
-        <WorkSection />
-        <AboutSection />
-        <StackSection />
-        <ContactSection />
-      </main>
-      <Footer />
-    </div>
+    <main id="main" className={styles.page}>
+      <Opening />
+      <SelectedWork />
+      <AboutShort />
+      <Contact />
+    </main>
   );
 }
